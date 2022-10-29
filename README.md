@@ -7,8 +7,8 @@ At this app you can seacch for ski trips, all you have to do is to insert trip d
 
 ## Start Project Instructions
 1. Clone or download project.
-2. Open client folder, in terminal write --> cd client
+2. Open client folder, in terminal type --> cd client
 3. Run yarn install
-4. Go back to previews folder, in terminal write --> cd ..
-5. Open server folder, in terminal write --> cd server
-6. Run in terminal --> yarn dev
+4. Go back to previews folder, in terminal type --> cd ..
+5. Open server folder, in terminal type --> cd server
+6. Run in terminal type --> yarn dev
