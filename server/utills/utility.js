@@ -8,7 +8,11 @@ const filterImages = (array) => {
   return res[0].URL;
 };
 
-const compareHotels = (hotel1Param, hotel2Param) =>
-  hotel1Param > hotel2Param ? 1 : hotel2Param > hotel1Param ? -1 : 0;
+const compareHotelsByPrice = (hotel1, hotel2) =>
+  hotel1.AmountAfterTax > hotel2.AmountAfterTax
+    ? 1
+    : hotel2.AmountAfterTax > hotel1.AmountAfterTax
+    ? -1
+    : 0;
 
-module.exports = { filterDistanceObj, filterImages, compareHotels };
+module.exports = { filterDistanceObj, filterImages, compareHotelsByPrice };

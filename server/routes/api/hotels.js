@@ -3,7 +3,7 @@ const axios = require('axios');
 const config = require('config');
 const { filterDistanceObj } = require('../../utills/utility');
 const { filterImages } = require('../../utills/utility');
-const { compareHotels } = require('../../utills/utility');
+const { compareHotelsByPrice } = require('../../utills/utility');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
       };
     });
 
-    const sortedByPriceHotels = hotels.sort(compareHotels);
+    const sortedByPriceHotels = hotels.sort(compareHotelsByPrice);
 
     res.json({ hotels: sortedByPriceHotels });
   } catch (error) {

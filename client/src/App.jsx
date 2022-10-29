@@ -52,7 +52,7 @@ const MainPage = styled.div`
     flex-direction: row;
     justify-content: space-between;
     width: 50rem;
-    color: #858383;
+    color: #4f4949;
   }
 
   .hotel {

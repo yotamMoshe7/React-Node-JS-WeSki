@@ -71,7 +71,7 @@ const HotelDetailsStyle = styled.div`
   .details {
     margin-left: 1rem;
     font-family: 'Objektiv Mk2';
-    width: 100%;
+    width: 80%;
   }
 
   .title {

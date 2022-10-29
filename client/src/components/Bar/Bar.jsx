@@ -14,6 +14,7 @@ import { BASE_URL, resortsList } from '../../constants/constants';
 import { validateInputs } from './validations';
 import Text from '../Text/Text';
 import { setHotels, setSearchValues } from '../../reducers/hotelsSlice';
+import Loader from '../Loader/Loader';
 
 const inputsObject = {
   ski_site: {
@@ -44,6 +45,7 @@ const inputsObject = {
 const Bar = () => {
   const [formValues, setFormValues] = useState(inputsObject);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = useCallback(
@@ -65,6 +67,7 @@ const Bar = () => {
       try {
         // Disable error message
         setErrorMessage(null);
+        setLoading(true);
 
         // Create api request obj
         const apiRequestObj = {
@@ -78,6 +81,7 @@ const Bar = () => {
           query: apiRequestObj,
         });
 
+        setLoading(false);
         dispatch(
           setSearchValues({
             ...apiRequestObj,
@@ -123,7 +127,13 @@ const Bar = () => {
           icon={CalenderIcon}
           onChange={handleChange}
         />
-        <Button label='Search' icon={searchIcon} onClick={searchClicked} />
+        <div className='button-wrapper'>
+          {!loading ? (
+            <Button label='Search' icon={searchIcon} onClick={searchClicked} />
+          ) : (
+            <Loader />
+          )}
+        </div>
       </div>
       <Text text={errorMessage} color='red' className='error-message' />
     </BarStyled>
@@ -141,6 +151,12 @@ const BarStyled = styled.div`
 
   .error-message {
     margin-top: 2rem;
+  }
+
+  .button-wrapper {
+    width: 6rem;
+    display: flex;
+    justify-content: center;
   }
 `;
 
