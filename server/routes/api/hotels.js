@@ -13,7 +13,7 @@ router.post('/', async (req, res) => {
       query: query,
     });
 
-    // organize the data
+    // parse the data
     let hotels = response.data.body.accommodations;
     hotels = hotels.map((hotel) => {
       return {
@@ -33,6 +33,7 @@ router.post('/', async (req, res) => {
       };
     });
 
+    // sort by price
     const sortedByPriceHotels = hotels.sort(compareHotelsByPrice);
 
     res.json({ hotels: sortedByPriceHotels });

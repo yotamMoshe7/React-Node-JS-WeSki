@@ -42,7 +42,5 @@ export const SMALL_TEXT_SIZE = 1;
 export const MEDIUM_TEXT_SIZE = 1.2;
 export const LARGE_TEXT_SIZE = 2.8;
 
-export const GREY = '#858383';
-
 // URLS
 export const BASE_URL = 'http://localhost:5000/api/hotels';
